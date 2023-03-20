@@ -2,8 +2,8 @@ h1 {
     color: red;
 }
 
-.board-container{
- display: flex;
+.board-container {
+    display: flex;
 }
 
 .board {
@@ -12,15 +12,18 @@ h1 {
 }
 
 .row {
-    display: block;
+    display: flex;
     height: fit-content;
     width: fit-content
 }
 
 .col {
+    margin: 2px;
+    padding: 5px;
     display: inline-block;
-    
     border: 1px solid black;
     width: 98px;
     height: 98px;
+    text-align: center;
+    font-size: 85px;
 }
