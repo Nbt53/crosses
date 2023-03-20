@@ -1,0 +1,26 @@
+h1 {
+    color: red;
+}
+
+.board-container{
+ display: flex;
+}
+
+.board {
+    height: 60vh;
+    margin: 0 auto;
+}
+
+.row {
+    display: block;
+    height: fit-content;
+    width: fit-content
+}
+
+.col {
+    display: inline-block;
+    
+    border: 1px solid black;
+    width: 98px;
+    height: 98px;
+}
