@@ -1,5 +1,19 @@
+const scores = document.querySelector('.scores');
 const boardContainer = document.querySelector('.board-container');
-const newGameButton = document.querySelector('.newGame');
+const newGameButton = document.querySelector('.new-game');
+const playerOneName = document.querySelector('.name-one');
+const playerTwoName = document.querySelector('.name-two');
+const playerOneScore = document.querySelector('.player-one-score');
+
+let playerOne = {
+    name: 'Player 1',
+    score: 0
+}
+
+let playerTwo = {
+    name: 'Player 2',
+    score: 0
+}
 
 let x = [];
 let o = [];
@@ -13,6 +27,8 @@ let turn = 0;
 
 drawBoard = () => {
     reset()
+    scores.style.display = 'flex'
+    boardContainer.style.display = 'flex'
     boardContainer.innerHTML = `<div class="board">
         <div class="row">
             <div class="col" id="0-0"> </div>
@@ -40,7 +56,7 @@ drawBoard = () => {
 placeSymbol = (e) => {
     const selected = e.target.id
     const square = document.getElementById(selected)
-    if (turn === 0) { 
+    if (turn === 0) {
         square.innerHTML = 'O';
         o.push(selected)
         square.removeEventListener('click', placeSymbol)
@@ -68,7 +84,14 @@ checkForWin = (player) => {
             }
         }
         if (matches === 3) {
-            alert(`We Have a winner`)
+           
+            if (turn === 0) {
+                playerOne.score++
+                alert(`${playerOne.name} wins`)
+            } else {
+                playerTwo.score ++
+                alert(`${playerTwo.name} wins`)
+            }
             for (let r = 0; r < 3; r++) {
                 for (let c = 0; c < 3; c++) {
                     document.getElementById(`${r}-${c}`).removeEventListener('click', placeSymbol);
@@ -85,5 +108,21 @@ reset = () => {
     boardContainer.innerHTML = ''
 }
 
+updateName = (e) =>{
+let toChange = e.target.id
+if(toChange === 'playerOne'){
+    playerOne.name = e.target.value
+    playerOneScore.innerHTML = e.target.value
+}else if(toChange === 'playerTwo'){
+    playerTwo.name = e.target.value
+}
+toChange.name = e.target.value
+}
 
+updateScores = () =>{
+
+}
+
+playerOneName.addEventListener('input', updateName)
+playerTwoName.addEventListener('input', updateName)
 newGameButton.addEventListener('click', drawBoard);

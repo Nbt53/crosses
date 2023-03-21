@@ -7,18 +7,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Noughts and Crosses</title>
     <link rel="stylesheet" href="app.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Source+Sans+Pro:wght@200;300&display=swap"
+        rel="stylesheet">
 
 </head>
 
 <body>
-    <h1>Noughts and crosses</h1>
+    <h1>Noughts and Crosses</h1>
 
-    <button class="newGame"> New Game</button>
-
-    <div class="board-container">
-   
+    <div class="scores">
+        <div class="player-score">
+            <p class="player-one-score"></p>
+        </div>
+        <div class="player-score">
+            <p class="player-two-score"></p>
+        </div>
     </div>
 
+    <div class="board-container">
+
+    </div>
+
+    <div class="controls">
+        <div class="player-details">
+            <label for="playerOne">O's</label>
+            <input type="text" placeholder='Player 1' name="o" id="playerOne" class="name-one">
+
+            <label for="playerTwo">X's</label>
+            <input type="text" placeholder="Player 2" name="x" id="playerTwo" class="name-two">
+        </div>
+        <button class="new-game">New Game</button>
+    </div>
     <script src="/app.js"></script>
 </body>
 

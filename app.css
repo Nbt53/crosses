@@ -1,9 +1,23 @@
+body{
+    font-family: 'Gochi Hand', cursive;
+    background-image:url(paper-background.jpg)
+}
+
 h1 {
-    color: red;
+    text-align: center;
+}
+
+.scores{
+    display: none;
+    height: 100px;
+    background-color: aqua;
+    align-self: center;
 }
 
 .board-container {
-    display: flex;
+    display: none;
+    height: 350px;
+    
 }
 
 .board {
@@ -26,4 +40,14 @@ h1 {
     height: 98px;
     text-align: center;
     font-size: 85px;
+}
+
+.controls {
+    display: block;
+    text-align: center;
+}
+
+.new-game{
+    display: inline-block;
+    margin: 10px 0;
 }
