@@ -23,29 +23,32 @@ const wins = [
     ['0-0', '1-1', '2-2'], ['0-2', '1-1', '2-0']
 ]
 
+
 let turn = 0;
 
 drawBoard = () => {
     reset()
+
+    let board = `<div class="board">
+    <div class="row">
+        <div class="col" id="0-0"> </div>
+        <div class="col" id="0-1"> </div>
+        <div class="col" id="0-2"> </div>
+    </div>
+    <div class="row">
+        <div class="col" id="1-0"> </div>
+        <div class="col" id="1-1"> </div>
+        <div class="col" id="1-2"> </div>
+    </div>
+    <div class="row">
+        <div class="col" id="2-0"></div>
+        <div class="col" id="2-1"></div>
+        <div class="col" id="2-2"></div>
+    </div>
+</div>`
     scores.style.display = 'flex'
     boardContainer.style.display = 'flex'
-    boardContainer.innerHTML = `<div class="board">
-        <div class="row">
-            <div class="col" id="0-0"> </div>
-            <div class="col" id="0-1"> </div>
-            <div class="col" id="0-2"> </div>
-        </div>
-        <div class="row">
-            <div class="col" id="1-0"> </div>
-            <div class="col" id="1-1"> </div>
-            <div class="col" id="1-2"> </div>
-        </div>
-        <div class="row">
-            <div class="col" id="2-0"></div>
-            <div class="col" id="2-1"></div>
-            <div class="col" id="2-2"></div>
-        </div>
-    </div>`;
+    boardContainer.innerHTML = board
     for (let r = 0; r < 3; r++) {
         for (let c = 0; c < 3; c++) {
             document.getElementById(`${r}-${c}`).addEventListener('click', placeSymbol);
@@ -84,12 +87,12 @@ checkForWin = (player) => {
             }
         }
         if (matches === 3) {
-           
+
             if (turn === 0) {
                 playerOne.score++
                 alert(`${playerOne.name} wins`)
             } else {
-                playerTwo.score ++
+                playerTwo.score++
                 alert(`${playerTwo.name} wins`)
             }
             for (let r = 0; r < 3; r++) {
@@ -108,18 +111,18 @@ reset = () => {
     boardContainer.innerHTML = ''
 }
 
-updateName = (e) =>{
-let toChange = e.target.id
-if(toChange === 'playerOne'){
-    playerOne.name = e.target.value
-    playerOneScore.innerHTML = e.target.value
-}else if(toChange === 'playerTwo'){
-    playerTwo.name = e.target.value
-}
-toChange.name = e.target.value
+updateName = (e) => {
+    let toChange = e.target.id
+    if (toChange === 'playerOne') {
+        playerOne.name = e.target.value
+        playerOneScore.innerHTML = e.target.value
+    } else if (toChange === 'playerTwo') {
+        playerTwo.name = e.target.value
+    }
+    toChange.name = e.target.value
 }
 
-updateScores = () =>{
+updateScores = () => {
 
 }
 

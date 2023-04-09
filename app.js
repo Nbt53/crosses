@@ -10,6 +10,7 @@ const path = require('path');
 const port = 3000
 const ejsMate = require('ejs-mate');
 const methodOverride = require('method-override');
+const game = require('./models/game');
 
 
 app.use(express.urlencoded({ extended: true }))
@@ -20,7 +21,7 @@ app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'ejs')
 
 //setup mongo-atlas
-const dbUrl = process.env.MONGO_URL || 'mongodb://localhost:\27017/crosses'
+const dbUrl = process.env.MONGO_URL 
 mongoose.connect(dbUrl), {
     addNewUrlParser: true,
     useCreateIndex: true,
@@ -43,3 +44,4 @@ app.get('/', (req, res) =>{
 app.listen(port, () =>{
     console.log(`listening on port ${port}`)
 })
+
