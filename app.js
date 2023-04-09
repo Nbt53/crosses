@@ -10,7 +10,7 @@ const path = require('path');
 const port = 3000
 const ejsMate = require('ejs-mate');
 const methodOverride = require('method-override');
-const game = require('./models/game');
+
 
 
 app.use(express.urlencoded({ extended: true }))
